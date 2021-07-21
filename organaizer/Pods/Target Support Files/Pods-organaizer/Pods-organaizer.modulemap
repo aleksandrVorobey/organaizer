@@ -1,0 +1,6 @@
+framework module Pods_organaizer {
+  umbrella header "Pods-organaizer-umbrella.h"
+
+  export *
+  module * { export * }
+}
