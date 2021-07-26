@@ -17,6 +17,9 @@
 		A665287F26A858CF008D78E0 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A665287E26A858CF008D78E0 /* TasksViewController.swift */; };
 		A665288126A858E1008D78E0 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A665288026A858E1008D78E0 /* ContactsViewController.swift */; };
 		A665288526AF1E84008D78E0 /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A665288426AF1E84008D78E0 /* ScheduleTableViewCell.swift */; };
+		A665288926AF3763008D78E0 /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A665288826AF3763008D78E0 /* UIStackView.swift */; };
+		A665288B26AF5A44008D78E0 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A665288A26AF5A44008D78E0 /* UILabel.swift */; };
+		A665288D26AF61BA008D78E0 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = A665288C26AF61BA008D78E0 /* UIFont.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +36,9 @@
 		A665287E26A858CF008D78E0 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		A665288026A858E1008D78E0 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		A665288426AF1E84008D78E0 /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
+		A665288826AF3763008D78E0 /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
+		A665288A26AF5A44008D78E0 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		A665288C26AF61BA008D78E0 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		B5F892CB934C89EC7B372C63 /* Pods-organaizer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-organaizer.debug.xcconfig"; path = "Target Support Files/Pods-organaizer/Pods-organaizer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,9 +92,10 @@
 		A665286426A85290008D78E0 /* organaizer */ = {
 			isa = PBXGroup;
 			children = (
-				A665288226AF1E4C008D78E0 /* Model */,
 				A665287926A853D2008D78E0 /* Aplication */,
+				A665288226AF1E4C008D78E0 /* Model */,
 				A665287A26A853E1008D78E0 /* Controllers */,
+				A665288626AF372E008D78E0 /* Extensions */,
 				A665287B26A853F6008D78E0 /* Resources */,
 			);
 			path = organaizer;
@@ -138,6 +145,24 @@
 				A665288426AF1E84008D78E0 /* ScheduleTableViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		A665288626AF372E008D78E0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A665288726AF374A008D78E0 /* UIKit */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A665288726AF374A008D78E0 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				A665288826AF3763008D78E0 /* UIStackView.swift */,
+				A665288A26AF5A44008D78E0 /* UILabel.swift */,
+				A665288C26AF61BA008D78E0 /* UIFont.swift */,
+			);
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,9 +281,12 @@
 				A665286A26A85290008D78E0 /* MainTabBarController.swift in Sources */,
 				A665288526AF1E84008D78E0 /* ScheduleTableViewCell.swift in Sources */,
 				A665286626A85290008D78E0 /* AppDelegate.swift in Sources */,
+				A665288926AF3763008D78E0 /* UIStackView.swift in Sources */,
+				A665288B26AF5A44008D78E0 /* UILabel.swift in Sources */,
 				A665287F26A858CF008D78E0 /* TasksViewController.swift in Sources */,
 				A665286826A85290008D78E0 /* SceneDelegate.swift in Sources */,
 				A665287D26A858BC008D78E0 /* ScheduleViewController.swift in Sources */,
+				A665288D26AF61BA008D78E0 /* UIFont.swift in Sources */,
 				A665288126A858E1008D78E0 /* ContactsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
