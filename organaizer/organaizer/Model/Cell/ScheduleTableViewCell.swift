@@ -15,21 +15,22 @@ class ScheduleTableViewCell: UITableViewCell {
         
     let lessonTime = UILabel(text: "08:00", font: .avenirNextDemiBold20())
     
-    let typeLabel = UILabel(text: "Type", font: .avenirNextDemiBold14(), alignment: .right)
+    let typeLabel = UILabel(text: "Type:", font: .avenirNextDemiBold14(), alignment: .right)
     
     let lessonType = UILabel(text: "Lection", font: .avenirNext14())
         
-    let buildingLabel = UILabel(text: "Courpus", font: .avenirNextDemiBold14(), alignment: .right)
+    let buildingLabel = UILabel(text: "Courpus:", font: .avenirNextDemiBold14(), alignment: .right)
     
     let lessonBuilding = UILabel(text: "1", font: .avenirNext14())
        
-    let audLabel = UILabel(text: "Auditoria", font: .avenirNextDemiBold14(), alignment: .right)
+    let audLabel = UILabel(text: "Auditoria:", font: .avenirNextDemiBold14(), alignment: .right)
         
     let lessonAud = UILabel(text: "101", font: .avenirNext14())
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         print(#function)
+        self.selectionStyle = .none
         setConstraints()
     }
     
@@ -38,7 +39,6 @@ class ScheduleTableViewCell: UITableViewCell {
     }
     
     override func layoutSubviews() {
-//        setConstraints()
         print(#function)
     }
     
@@ -47,11 +47,6 @@ class ScheduleTableViewCell: UITableViewCell {
         print(#function)
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        
-    }
 //MARK: - SetConstraints
     func setConstraints() {
         let topStackView = UIStackView(arrangedSubviews: [lessonName, teacherName], axis: .horizontal, spacing: 10, distribution: .fillEqually)

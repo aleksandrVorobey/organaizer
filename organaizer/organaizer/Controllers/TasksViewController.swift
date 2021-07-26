@@ -26,6 +26,15 @@ class TasksViewController: UIViewController {
         button.titleLabel?.font = UIFont(name: "Avenir Next Demi Bold", size: 16)
         return button
     }()
+    
+    let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.bounces = false
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
+    
+    let idTasksCell = "idTasksCell"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +45,10 @@ class TasksViewController: UIViewController {
         
         calendar.delegate = self
         calendar.dataSource = self
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(TasksTableViewCell.self, forCellReuseIdentifier: idTasksCell)
         
         calendar.scope = .week
         
@@ -80,6 +93,32 @@ class TasksViewController: UIViewController {
     
 }
 
+//MARK: - UITableViewDelegate and DataSource
+extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: idTasksCell, for: indexPath) as! TasksTableViewCell
+        cell.cellTaskDelegate = self
+        cell.index = indexPath
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
+}
+
+//MARK: - PressReadyTaskButtonProtocol
+extension TasksViewController: PressReadyTaskButtonProtocol {
+    func readyButtonTapped(indexPath: IndexPath) {
+        print("TAPTAP")
+    }
+}
+
 //MARK: - FSCalendar delegate and datasourse
 extension TasksViewController: FSCalendarDelegate, FSCalendarDataSource {
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
@@ -97,6 +136,7 @@ extension TasksViewController {
     func setConstraintsForCalendar() {
         view.addSubview(calendar)
         view.addSubview(showHideButton)
+        view.addSubview(tableView)
         
         calendarHeightConstrain = NSLayoutConstraint(item: calendar, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 300)
         calendar.addConstraint(calendarHeightConstrain)
@@ -109,7 +149,12 @@ extension TasksViewController {
             showHideButton.topAnchor.constraint(equalTo: calendar.bottomAnchor, constant: 0),
             showHideButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             showHideButton.widthAnchor.constraint(equalToConstant: 120),
-            showHideButton.heightAnchor.constraint(equalToConstant: 20)
+            showHideButton.heightAnchor.constraint(equalToConstant: 20),
+            
+            tableView.topAnchor.constraint(equalTo: showHideButton.bottomAnchor, constant: 0),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
         ])
     }
 }

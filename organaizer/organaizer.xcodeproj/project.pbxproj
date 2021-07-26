@@ -20,6 +20,8 @@
 		A665288926AF3763008D78E0 /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A665288826AF3763008D78E0 /* UIStackView.swift */; };
 		A665288B26AF5A44008D78E0 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A665288A26AF5A44008D78E0 /* UILabel.swift */; };
 		A665288D26AF61BA008D78E0 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = A665288C26AF61BA008D78E0 /* UIFont.swift */; };
+		A665288F26AF6EC1008D78E0 /* TasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A665288E26AF6EC1008D78E0 /* TasksTableViewCell.swift */; };
+		A665289226AF7A86008D78E0 /* PressButtonProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A665289126AF7A86008D78E0 /* PressButtonProtocols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		A665288826AF3763008D78E0 /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
 		A665288A26AF5A44008D78E0 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		A665288C26AF61BA008D78E0 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		A665288E26AF6EC1008D78E0 /* TasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewCell.swift; sourceTree = "<group>"; };
+		A665289126AF7A86008D78E0 /* PressButtonProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressButtonProtocols.swift; sourceTree = "<group>"; };
 		B5F892CB934C89EC7B372C63 /* Pods-organaizer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-organaizer.debug.xcconfig"; path = "Target Support Files/Pods-organaizer/Pods-organaizer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,6 +100,7 @@
 				A665288226AF1E4C008D78E0 /* Model */,
 				A665287A26A853E1008D78E0 /* Controllers */,
 				A665288626AF372E008D78E0 /* Extensions */,
+				A665289026AF7A55008D78E0 /* Protocols */,
 				A665287B26A853F6008D78E0 /* Resources */,
 			);
 			path = organaizer;
@@ -143,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				A665288426AF1E84008D78E0 /* ScheduleTableViewCell.swift */,
+				A665288E26AF6EC1008D78E0 /* TasksTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -163,6 +169,14 @@
 				A665288C26AF61BA008D78E0 /* UIFont.swift */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		A665289026AF7A55008D78E0 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A665289126AF7A86008D78E0 /* PressButtonProtocols.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,6 +302,8 @@
 				A665287D26A858BC008D78E0 /* ScheduleViewController.swift in Sources */,
 				A665288D26AF61BA008D78E0 /* UIFont.swift in Sources */,
 				A665288126A858E1008D78E0 /* ContactsViewController.swift in Sources */,
+				A665288F26AF6EC1008D78E0 /* TasksTableViewCell.swift in Sources */,
+				A665289226AF7A86008D78E0 /* PressButtonProtocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

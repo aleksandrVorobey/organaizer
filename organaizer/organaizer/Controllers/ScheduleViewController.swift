@@ -29,6 +29,7 @@ class ScheduleViewController: UIViewController {
     
     let tableView: UITableView = {
         let tableView = UITableView()
+        tableView.bounces = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -104,7 +105,7 @@ extension ScheduleViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90
+        return 80
     }
     
 }

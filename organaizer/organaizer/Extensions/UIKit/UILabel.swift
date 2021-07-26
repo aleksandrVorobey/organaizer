@@ -17,7 +17,6 @@ extension UILabel {
         self.textColor = textColor
         self.adjustsFontSizeToFitWidth = true
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.backgroundColor = .red
     }
 }
 
