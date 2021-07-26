@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,7 @@
 		A665287D26A858BC008D78E0 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A665287C26A858BC008D78E0 /* ScheduleViewController.swift */; };
 		A665287F26A858CF008D78E0 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A665287E26A858CF008D78E0 /* TasksViewController.swift */; };
 		A665288126A858E1008D78E0 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A665288026A858E1008D78E0 /* ContactsViewController.swift */; };
+		A665288526AF1E84008D78E0 /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A665288426AF1E84008D78E0 /* ScheduleTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		A665287C26A858BC008D78E0 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		A665287E26A858CF008D78E0 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		A665288026A858E1008D78E0 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		A665288426AF1E84008D78E0 /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		B5F892CB934C89EC7B372C63 /* Pods-organaizer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-organaizer.debug.xcconfig"; path = "Target Support Files/Pods-organaizer/Pods-organaizer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,7 +62,6 @@
 				B5F892CB934C89EC7B372C63 /* Pods-organaizer.debug.xcconfig */,
 				56F814E970FE88758BF1C6F0 /* Pods-organaizer.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -85,6 +86,7 @@
 		A665286426A85290008D78E0 /* organaizer */ = {
 			isa = PBXGroup;
 			children = (
+				A665288226AF1E4C008D78E0 /* Model */,
 				A665287926A853D2008D78E0 /* Aplication */,
 				A665287A26A853E1008D78E0 /* Controllers */,
 				A665287B26A853F6008D78E0 /* Resources */,
@@ -120,6 +122,22 @@
 				A665287326A85293008D78E0 /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		A665288226AF1E4C008D78E0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A665288326AF1E5A008D78E0 /* Cell */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A665288326AF1E5A008D78E0 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				A665288426AF1E84008D78E0 /* ScheduleTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A665286A26A85290008D78E0 /* MainTabBarController.swift in Sources */,
+				A665288526AF1E84008D78E0 /* ScheduleTableViewCell.swift in Sources */,
 				A665286626A85290008D78E0 /* AppDelegate.swift in Sources */,
 				A665287F26A858CF008D78E0 /* TasksViewController.swift in Sources */,
 				A665286826A85290008D78E0 /* SceneDelegate.swift in Sources */,

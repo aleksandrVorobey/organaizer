@@ -26,6 +26,14 @@ class ScheduleViewController: UIViewController {
         button.titleLabel?.font = UIFont(name: "Avenir Next Demi Bold", size: 16)
         return button
     }()
+    
+    let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
+    
+    let idScheduleCell = "idScheduleCell"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +44,10 @@ class ScheduleViewController: UIViewController {
         
         calendar.delegate = self
         calendar.dataSource = self
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(ScheduleTableViewCell.self, forCellReuseIdentifier: idScheduleCell)
         
         calendar.scope = .week
         
@@ -80,7 +92,21 @@ class ScheduleViewController: UIViewController {
     
 }
 
-//MARK: - FSCalendar delegate and datasourse
+//MARK: - UITableViewDelegate and DataSource
+extension ScheduleViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: idScheduleCell, for: indexPath) as! ScheduleTableViewCell
+        return cell
+    }
+    
+    
+}
+
+//MARK: - FSCalendar delegate and datasource
 extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource {
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
         calendarHeightConstrain.constant = bounds.height
@@ -97,6 +123,7 @@ extension ScheduleViewController {
     func setConstraintsForCalendar() {
         view.addSubview(calendar)
         view.addSubview(showHideButton)
+        view.addSubview(tableView)
         
         calendarHeightConstrain = NSLayoutConstraint(item: calendar, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 300)
         calendar.addConstraint(calendarHeightConstrain)
@@ -109,7 +136,12 @@ extension ScheduleViewController {
             showHideButton.topAnchor.constraint(equalTo: calendar.bottomAnchor, constant: 0),
             showHideButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             showHideButton.widthAnchor.constraint(equalToConstant: 120),
-            showHideButton.heightAnchor.constraint(equalToConstant: 20)
+            showHideButton.heightAnchor.constraint(equalToConstant: 20),
+            
+            tableView.topAnchor.constraint(equalTo: showHideButton.bottomAnchor, constant: 0),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
         ])
     }
 }
