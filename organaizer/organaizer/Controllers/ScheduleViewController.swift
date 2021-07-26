@@ -40,6 +40,8 @@ class ScheduleViewController: UIViewController {
         calendar.scope = .week
         
         showHideButton.addTarget(self, action: #selector(showHideButtonTapped), for: .touchUpInside)
+        
+        swipeAction()
     }
     
     @objc func showHideButtonTapped() {
@@ -51,7 +53,31 @@ class ScheduleViewController: UIViewController {
             showHideButton.setTitle("Open calendar", for: .normal)
         }
     }
+    
+//MARK: - SwipeGestureRecognaizer
+    func swipeAction() {
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe))
+        swipeUp.direction = .up
+        calendar.addGestureRecognizer(swipeUp)
+        
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe))
+        swipeDown.direction = .down
+        calendar.addGestureRecognizer(swipeDown)
+    }
 
+    @objc func handleSwipe(gesture: UISwipeGestureRecognizer) {
+        switch gesture.direction {
+        case .up:
+            calendar.setScope(.week, animated: true)
+            showHideButton.setTitle("Open calendar", for: .normal)
+        case .down:
+            calendar.setScope(.month, animated: true)
+            showHideButton.setTitle("Close calendar", for: .normal)
+        default:
+            break
+        }
+    }
+    
 }
 
 //MARK: - FSCalendar delegate and datasourse
