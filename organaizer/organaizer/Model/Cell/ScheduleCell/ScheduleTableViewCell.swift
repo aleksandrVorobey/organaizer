@@ -29,22 +29,13 @@ class ScheduleTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        print(#function)
+
         self.selectionStyle = .none
         setConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func layoutSubviews() {
-        print(#function)
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        print(#function)
     }
 
 //MARK: - SetConstraints

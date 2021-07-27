@@ -55,6 +55,8 @@ class ScheduleViewController: UIViewController {
         showHideButton.addTarget(self, action: #selector(showHideButtonTapped), for: .touchUpInside)
         
         swipeAction()
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
     }
     
     @objc func showHideButtonTapped() {
@@ -65,6 +67,12 @@ class ScheduleViewController: UIViewController {
             calendar.setScope(.week, animated: true)
             showHideButton.setTitle("Open calendar", for: .normal)
         }
+    }
+    
+    @objc func addButtonTapped() {
+        let scheduleOptionsVC = OptionsScheduleTableViewController()
+        navigationController?.pushViewController(scheduleOptionsVC, animated: true)
+        print("taptap")
     }
     
 //MARK: - SwipeGestureRecognaizer
