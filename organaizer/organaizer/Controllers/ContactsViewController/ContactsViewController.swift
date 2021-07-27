@@ -13,6 +13,7 @@ class ContactsViewController: UIViewController {
         super.viewDidLoad()
 
         title = "Contacts"
+        view.backgroundColor = .white
     }
     
 

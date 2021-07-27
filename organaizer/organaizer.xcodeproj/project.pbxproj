@@ -25,6 +25,11 @@
 		A665289426B00764008D78E0 /* OptionsScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A665289326B00764008D78E0 /* OptionsScheduleTableViewController.swift */; };
 		A665289B26B00D1B008D78E0 /* OptionsScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A665289A26B00D1B008D78E0 /* OptionsScheduleTableViewCell.swift */; };
 		A665289D26B01450008D78E0 /* HeaderOptionSheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A665289C26B01450008D78E0 /* HeaderOptionSheduleTableViewCell.swift */; };
+		A66528A026B04E24008D78E0 /* AlertDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A665289F26B04E24008D78E0 /* AlertDate.swift */; };
+		A66528A226B094BB008D78E0 /* AlertTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66528A126B094BB008D78E0 /* AlertTime.swift */; };
+		A66528A426B097EB008D78E0 /* AlertForCellName.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66528A326B097EB008D78E0 /* AlertForCellName.swift */; };
+		A66528A626B09CA4008D78E0 /* ScheduleColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66528A526B09CA4008D78E0 /* ScheduleColorViewController.swift */; };
+		A66528A826B09CEB008D78E0 /* TeachersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66528A726B09CEB008D78E0 /* TeachersViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +54,11 @@
 		A665289326B00764008D78E0 /* OptionsScheduleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsScheduleTableViewController.swift; sourceTree = "<group>"; };
 		A665289A26B00D1B008D78E0 /* OptionsScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		A665289C26B01450008D78E0 /* HeaderOptionSheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderOptionSheduleTableViewCell.swift; sourceTree = "<group>"; };
+		A665289F26B04E24008D78E0 /* AlertDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDate.swift; sourceTree = "<group>"; };
+		A66528A126B094BB008D78E0 /* AlertTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertTime.swift; sourceTree = "<group>"; };
+		A66528A326B097EB008D78E0 /* AlertForCellName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertForCellName.swift; sourceTree = "<group>"; };
+		A66528A526B09CA4008D78E0 /* ScheduleColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleColorViewController.swift; sourceTree = "<group>"; };
+		A66528A726B09CEB008D78E0 /* TeachersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeachersViewController.swift; sourceTree = "<group>"; };
 		B5F892CB934C89EC7B372C63 /* Pods-organaizer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-organaizer.debug.xcconfig"; path = "Target Support Files/Pods-organaizer/Pods-organaizer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,6 +155,7 @@
 		A665288226AF1E4C008D78E0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A665289E26B04DFA008D78E0 /* Alert */,
 				A665288326AF1E5A008D78E0 /* Cell */,
 			);
 			path = Model;
@@ -190,6 +201,7 @@
 			children = (
 				A665287C26A858BC008D78E0 /* ScheduleViewController.swift */,
 				A665289326B00764008D78E0 /* OptionsScheduleTableViewController.swift */,
+				A66528A526B09CA4008D78E0 /* ScheduleColorViewController.swift */,
 			);
 			path = SheduleViewController;
 			sourceTree = "<group>";
@@ -206,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				A665288026A858E1008D78E0 /* ContactsViewController.swift */,
+				A66528A726B09CEB008D78E0 /* TeachersViewController.swift */,
 			);
 			path = ContactsViewController;
 			sourceTree = "<group>";
@@ -226,6 +239,16 @@
 				A665288E26AF6EC1008D78E0 /* TasksTableViewCell.swift */,
 			);
 			path = TasksCell;
+			sourceTree = "<group>";
+		};
+		A665289E26B04DFA008D78E0 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				A665289F26B04E24008D78E0 /* AlertDate.swift */,
+				A66528A126B094BB008D78E0 /* AlertTime.swift */,
+				A66528A326B097EB008D78E0 /* AlertForCellName.swift */,
+			);
+			path = Alert;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,13 +364,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A66528A026B04E24008D78E0 /* AlertDate.swift in Sources */,
 				A665286A26A85290008D78E0 /* MainTabBarController.swift in Sources */,
 				A665288526AF1E84008D78E0 /* ScheduleTableViewCell.swift in Sources */,
 				A665286626A85290008D78E0 /* AppDelegate.swift in Sources */,
 				A665288926AF3763008D78E0 /* UIStackView.swift in Sources */,
+				A66528A826B09CEB008D78E0 /* TeachersViewController.swift in Sources */,
+				A66528A426B097EB008D78E0 /* AlertForCellName.swift in Sources */,
 				A665288B26AF5A44008D78E0 /* UILabel.swift in Sources */,
 				A665287F26A858CF008D78E0 /* TasksViewController.swift in Sources */,
 				A665286826A85290008D78E0 /* SceneDelegate.swift in Sources */,
+				A66528A226B094BB008D78E0 /* AlertTime.swift in Sources */,
 				A665287D26A858BC008D78E0 /* ScheduleViewController.swift in Sources */,
 				A665288D26AF61BA008D78E0 /* UIFont.swift in Sources */,
 				A665288126A858E1008D78E0 /* ContactsViewController.swift in Sources */,
@@ -355,6 +382,7 @@
 				A665289B26B00D1B008D78E0 /* OptionsScheduleTableViewCell.swift in Sources */,
 				A665289226AF7A86008D78E0 /* PressButtonProtocols.swift in Sources */,
 				A665289426B00764008D78E0 /* OptionsScheduleTableViewController.swift in Sources */,
+				A66528A626B09CA4008D78E0 /* ScheduleColorViewController.swift in Sources */,
 				A665289D26B01450008D78E0 /* HeaderOptionSheduleTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -51,6 +51,8 @@ class OptionsScheduleTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    
     @objc func switchChange(paramTarget: UISwitch) {
         if paramTarget.isOn {
             print("On")
