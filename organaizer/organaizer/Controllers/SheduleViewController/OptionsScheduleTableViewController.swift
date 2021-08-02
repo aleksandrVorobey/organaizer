@@ -14,12 +14,14 @@ class OptionsScheduleTableViewController: UITableViewController {
     
     let headerNameArray = ["DATE AND TIME", "LESSON", "TEACHER", "COLOR", "PERIOD"]
     
+    let cellNameArray = [["Date:", "Time:"], ["Name:", "Type:", "Corpuse:", "Auditoria:"], ["Teacher Name:"], [""], ["Repeat every seven days:"]]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(OptionsScheduleTableViewCell.self, forCellReuseIdentifier: idOptionsScheduleCell)
+        tableView.register(OptionsTableViewCell.self, forCellReuseIdentifier: idOptionsScheduleCell)
         tableView.register(HeaderOptionsTableViewCell.self, forHeaderFooterViewReuseIdentifier: idOptionsScheduleHeader)
         
         tableView.backgroundColor = #colorLiteral(red: 0.9272904481, green: 0.9109478226, blue: 0.9396332249, alpha: 1)
@@ -45,8 +47,8 @@ class OptionsScheduleTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: idOptionsScheduleCell, for: indexPath) as! OptionsScheduleTableViewCell
-        cell.cellConfigure(indexPath: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: idOptionsScheduleCell, for: indexPath) as! OptionsTableViewCell
+        cell.cellScheduleConfigure(nameArray: cellNameArray, indexPath: indexPath)
         return cell
     }
     
@@ -55,7 +57,7 @@ class OptionsScheduleTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! OptionsScheduleTableViewCell
+        let cell = tableView.cellForRow(at: indexPath) as! OptionsTableViewCell
         
         switch indexPath {
         case [0,0]: alertDate(label: cell.nameCellLabel) { numberWeekDay, date in

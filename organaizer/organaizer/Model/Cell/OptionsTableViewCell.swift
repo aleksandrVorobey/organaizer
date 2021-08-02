@@ -1,13 +1,13 @@
 //
-//  OptionTaskTableViewCell.swift
+//  OptionsScheduleTableViewCell.swift
 //  organaizer
 //
-//  Created by Александр Воробей on 02.08.2021.
+//  Created by Александр Воробей on 27.07.2021.
 //
 
 import UIKit
 
-class OptionTaskTableViewCell: UITableViewCell {
+class OptionsTableViewCell: UITableViewCell {
     
     let backgroundViewCell: UIView = {
         let view = UIView()
@@ -23,8 +23,15 @@ class OptionTaskTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-   
-    let cellNameArray = ["Date", "Lesson", "Task", ""]
+    
+    let repeatSwitch: UISwitch = {
+       let repeatSwitch = UISwitch()
+        repeatSwitch.isOn = true
+        repeatSwitch.isHidden = true
+        repeatSwitch.onTintColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+        repeatSwitch.translatesAutoresizingMaskIntoConstraints = false
+        return repeatSwitch
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -32,7 +39,9 @@ class OptionTaskTableViewCell: UITableViewCell {
         backgroundColor = .clear
 
         self.selectionStyle = .none
-                
+        
+        repeatSwitch.addTarget(self, action: #selector(switchChange), for: .valueChanged)
+        
         setConstraints()
     }
     
@@ -50,18 +59,30 @@ class OptionTaskTableViewCell: UITableViewCell {
         }
     }
     
-    func cellConfigure(indexPath: IndexPath) {
-        self.nameCellLabel.text = cellNameArray[indexPath.section]
+    func cellScheduleConfigure(nameArray: [[String]], indexPath: IndexPath) {
+        self.nameCellLabel.text = nameArray[indexPath.section][indexPath.row]
+        if indexPath == [3,0] {
+            backgroundViewCell.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+        }
+        if indexPath == [4,0] {
+            repeatSwitch.isHidden = false
+        }
+    }
+    
+    func cellTasksConfigure(nameArray: [String], indexPath: IndexPath) {
+        self.nameCellLabel.text = nameArray[indexPath.section]
         if indexPath == [3,0] {
             backgroundViewCell.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
         }
         
     }
 
+
 //MARK: - SetConstraints
     func setConstraints() {
         self.addSubview(backgroundViewCell)
         self.addSubview(nameCellLabel)
+        self.contentView.addSubview(repeatSwitch)
         
         NSLayoutConstraint.activate([
             backgroundViewCell.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
@@ -70,10 +91,12 @@ class OptionTaskTableViewCell: UITableViewCell {
             backgroundViewCell.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -1),
             
             nameCellLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            nameCellLabel.leadingAnchor.constraint(equalTo: backgroundViewCell.leadingAnchor, constant: 15)
+            nameCellLabel.leadingAnchor.constraint(equalTo: backgroundViewCell.leadingAnchor, constant: 15),
+            
+            repeatSwitch.trailingAnchor.constraint(equalTo: backgroundViewCell.trailingAnchor, constant: -20),
+            repeatSwitch.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         ])
     }
 
 }
-
 
