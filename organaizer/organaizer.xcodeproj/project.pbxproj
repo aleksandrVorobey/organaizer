@@ -8,7 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		841B65B81DAADF9A88449508 /* Pods_organaizer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A3AC08A26A64AE98F8F500A /* Pods_organaizer.framework */; };
-		A62C0E2026B812F9003FD884 /* ColorScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62C0E1F26B812F9003FD884 /* ColorScheduleTableViewCell.swift */; };
+		A62C0E2026B812F9003FD884 /* ColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62C0E1F26B812F9003FD884 /* ColorTableViewCell.swift */; };
+		A62C0E2226B8183C003FD884 /* TasksOptionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62C0E2126B8183C003FD884 /* TasksOptionTableViewController.swift */; };
+		A62C0E2426B819C8003FD884 /* OptionTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62C0E2326B819C8003FD884 /* OptionTaskTableViewCell.swift */; };
+		A62C0E2626B8258B003FD884 /* ColorTaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62C0E2526B8258B003FD884 /* ColorTaskTableViewController.swift */; };
 		A665286626A85290008D78E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A665286526A85290008D78E0 /* AppDelegate.swift */; };
 		A665286826A85290008D78E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A665286726A85290008D78E0 /* SceneDelegate.swift */; };
 		A665286A26A85290008D78E0 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A665286926A85290008D78E0 /* MainTabBarController.swift */; };
@@ -36,7 +39,10 @@
 /* Begin PBXFileReference section */
 		56F814E970FE88758BF1C6F0 /* Pods-organaizer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-organaizer.release.xcconfig"; path = "Target Support Files/Pods-organaizer/Pods-organaizer.release.xcconfig"; sourceTree = "<group>"; };
 		9A3AC08A26A64AE98F8F500A /* Pods_organaizer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_organaizer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A62C0E1F26B812F9003FD884 /* ColorScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorScheduleTableViewCell.swift; sourceTree = "<group>"; };
+		A62C0E1F26B812F9003FD884 /* ColorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTableViewCell.swift; sourceTree = "<group>"; };
+		A62C0E2126B8183C003FD884 /* TasksOptionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksOptionTableViewController.swift; sourceTree = "<group>"; };
+		A62C0E2326B819C8003FD884 /* OptionTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionTaskTableViewCell.swift; sourceTree = "<group>"; };
+		A62C0E2526B8258B003FD884 /* ColorTaskTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTaskTableViewController.swift; sourceTree = "<group>"; };
 		A665286226A85290008D78E0 /* organaizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = organaizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A665286526A85290008D78E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A665286726A85290008D78E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -167,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				A665289C26B01450008D78E0 /* HeaderOptionsTableViewCell.swift */,
+				A62C0E1F26B812F9003FD884 /* ColorTableViewCell.swift */,
 				A665289826B00CCF008D78E0 /* ScheduleCell */,
 				A665289926B00CE2008D78E0 /* TasksCell */,
 			);
@@ -213,6 +220,8 @@
 			isa = PBXGroup;
 			children = (
 				A665287E26A858CF008D78E0 /* TasksViewController.swift */,
+				A62C0E2126B8183C003FD884 /* TasksOptionTableViewController.swift */,
+				A62C0E2526B8258B003FD884 /* ColorTaskTableViewController.swift */,
 			);
 			path = TasksViewController;
 			sourceTree = "<group>";
@@ -231,7 +240,6 @@
 			children = (
 				A665288426AF1E84008D78E0 /* ScheduleTableViewCell.swift */,
 				A665289A26B00D1B008D78E0 /* OptionsScheduleTableViewCell.swift */,
-				A62C0E1F26B812F9003FD884 /* ColorScheduleTableViewCell.swift */,
 			);
 			path = ScheduleCell;
 			sourceTree = "<group>";
@@ -240,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				A665288E26AF6EC1008D78E0 /* TasksTableViewCell.swift */,
+				A62C0E2326B819C8003FD884 /* OptionTaskTableViewCell.swift */,
 			);
 			path = TasksCell;
 			sourceTree = "<group>";
@@ -369,7 +378,7 @@
 			files = (
 				A66528A026B04E24008D78E0 /* AlertDate.swift in Sources */,
 				A665286A26A85290008D78E0 /* MainTabBarController.swift in Sources */,
-				A62C0E2026B812F9003FD884 /* ColorScheduleTableViewCell.swift in Sources */,
+				A62C0E2026B812F9003FD884 /* ColorTableViewCell.swift in Sources */,
 				A665288526AF1E84008D78E0 /* ScheduleTableViewCell.swift in Sources */,
 				A665286626A85290008D78E0 /* AppDelegate.swift in Sources */,
 				A665288926AF3763008D78E0 /* UIStackView.swift in Sources */,
@@ -383,10 +392,13 @@
 				A665288D26AF61BA008D78E0 /* UIFont.swift in Sources */,
 				A665288126A858E1008D78E0 /* ContactsViewController.swift in Sources */,
 				A665288F26AF6EC1008D78E0 /* TasksTableViewCell.swift in Sources */,
+				A62C0E2426B819C8003FD884 /* OptionTaskTableViewCell.swift in Sources */,
 				A665289B26B00D1B008D78E0 /* OptionsScheduleTableViewCell.swift in Sources */,
 				A665289226AF7A86008D78E0 /* PressButtonProtocols.swift in Sources */,
+				A62C0E2226B8183C003FD884 /* TasksOptionTableViewController.swift in Sources */,
 				A665289426B00764008D78E0 /* OptionsScheduleTableViewController.swift in Sources */,
 				A66528A626B09CA4008D78E0 /* ScheduleColorViewController.swift in Sources */,
+				A62C0E2626B8258B003FD884 /* ColorTaskTableViewController.swift in Sources */,
 				A665289D26B01450008D78E0 /* HeaderOptionsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

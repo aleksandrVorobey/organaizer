@@ -18,7 +18,7 @@ class HeaderOptionsTableViewCell: UITableViewHeaderFooterView {
         super.init(reuseIdentifier: reuseIdentifier)
         
         headerLabel.textColor = .darkGray
-        self.contentView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        self.contentView.backgroundColor = #colorLiteral(red: 0.9272904481, green: 0.9109478226, blue: 0.9396332249, alpha: 1)
         setConstraints()
     }
     
