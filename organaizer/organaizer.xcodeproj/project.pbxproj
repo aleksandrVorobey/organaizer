@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		841B65B81DAADF9A88449508 /* Pods_organaizer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A3AC08A26A64AE98F8F500A /* Pods_organaizer.framework */; };
+		A62C0E2026B812F9003FD884 /* ColorScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62C0E1F26B812F9003FD884 /* ColorScheduleTableViewCell.swift */; };
 		A665286626A85290008D78E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A665286526A85290008D78E0 /* AppDelegate.swift */; };
 		A665286826A85290008D78E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A665286726A85290008D78E0 /* SceneDelegate.swift */; };
 		A665286A26A85290008D78E0 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A665286926A85290008D78E0 /* MainTabBarController.swift */; };
@@ -35,6 +36,7 @@
 /* Begin PBXFileReference section */
 		56F814E970FE88758BF1C6F0 /* Pods-organaizer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-organaizer.release.xcconfig"; path = "Target Support Files/Pods-organaizer/Pods-organaizer.release.xcconfig"; sourceTree = "<group>"; };
 		9A3AC08A26A64AE98F8F500A /* Pods_organaizer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_organaizer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A62C0E1F26B812F9003FD884 /* ColorScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		A665286226A85290008D78E0 /* organaizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = organaizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A665286526A85290008D78E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A665286726A85290008D78E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 			children = (
 				A665288426AF1E84008D78E0 /* ScheduleTableViewCell.swift */,
 				A665289A26B00D1B008D78E0 /* OptionsScheduleTableViewCell.swift */,
+				A62C0E1F26B812F9003FD884 /* ColorScheduleTableViewCell.swift */,
 			);
 			path = ScheduleCell;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 			files = (
 				A66528A026B04E24008D78E0 /* AlertDate.swift in Sources */,
 				A665286A26A85290008D78E0 /* MainTabBarController.swift in Sources */,
+				A62C0E2026B812F9003FD884 /* ColorScheduleTableViewCell.swift in Sources */,
 				A665288526AF1E84008D78E0 /* ScheduleTableViewCell.swift in Sources */,
 				A665286626A85290008D78E0 /* AppDelegate.swift in Sources */,
 				A665288926AF3763008D78E0 /* UIStackView.swift in Sources */,
