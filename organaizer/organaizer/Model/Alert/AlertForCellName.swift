@@ -13,8 +13,10 @@ extension UIViewController {
         
         let ok = UIAlertAction(title: "Ok", style: .default) { action in
             let tfAlert = alert.textFields?.first
-            guard let text = tfAlert?.text else { return }
-            label.text = text
+            guard let text = tfAlert?.text  else { return  }
+            if text.count > 0 {
+                label.text = text
+            }
         }
         
         alert.addTextField { tfAlert in

@@ -48,7 +48,7 @@ class ColorTaskTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! ColorTableViewCell
+        _ = tableView.cellForRow(at: indexPath) as! ColorTableViewCell
         
         print("Tap cell")
     }

@@ -9,12 +9,14 @@ import UIKit
 
 class OptionsTableViewCell: UITableViewCell {
     
-    let backgroundViewCell: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .white
-        view.layer.cornerRadius = 10
-        return view
+    let backgroundViewCell: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.backgroundColor = .white
+        imageView.tintColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
+        imageView.layer.cornerRadius = 10
+        imageView.contentMode = .scaleAspectFit
+        return imageView
     }()
     
     let nameCellLabel: UILabel = {
@@ -74,7 +76,11 @@ class OptionsTableViewCell: UITableViewCell {
         if indexPath == [3,0] {
             backgroundViewCell.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
         }
-        
+    }
+    
+    func cellContactsConfigure(nameArray: [String], indexPath: IndexPath) {
+        self.nameCellLabel.text = nameArray[indexPath.section]
+        indexPath.section == 4 ? backgroundViewCell.image = UIImage(systemName: "person.fill.badge.plus") : nil
     }
 
 
