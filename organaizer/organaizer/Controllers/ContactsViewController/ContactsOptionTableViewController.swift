@@ -59,6 +59,9 @@ class ContactsOptionTableViewController: UITableViewController {
         case 3: alertFriendOrTeacher(label: cell.nameCellLabel) { type in
             print(type)
         }
+        case 4: alertPhotoOrCamera { source in
+            self.chooseImagePicker(sourse: source)
+        }
         default:
             print("prapapa")
         }
@@ -84,4 +87,22 @@ class ContactsOptionTableViewController: UITableViewController {
     
 }
 
-
+extension ContactsOptionTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func chooseImagePicker(sourse: UIImagePickerController.SourceType) {
+        if UIImagePickerController.isSourceTypeAvailable(sourse) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.allowsEditing = true
+            imagePicker.sourceType = sourse
+            present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let cell = tableView.cellForRow(at: [4,0]) as! OptionsTableViewCell
+        cell.backgroundViewCell.image = info[.editedImage] as? UIImage
+        cell.backgroundViewCell.contentMode = .scaleAspectFill
+        cell.backgroundViewCell.clipsToBounds = true
+        dismiss(animated: true, completion: nil)
+    }
+}

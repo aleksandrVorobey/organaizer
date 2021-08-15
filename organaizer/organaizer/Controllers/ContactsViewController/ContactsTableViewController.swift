@@ -9,6 +9,8 @@ import UIKit
 
 class ContactsTableViewController: UITableViewController {
     
+    let searchController = UISearchController()
+    
     let idContactsCell = "idContactsCell"
 
     override func viewDidLoad() {
@@ -20,7 +22,10 @@ class ContactsTableViewController: UITableViewController {
         
         tableView.backgroundColor = #colorLiteral(red: 0.9272904481, green: 0.9109478226, blue: 0.9396332249, alpha: 1)
         tableView.separatorStyle = .singleLine
-        tableView.bounces = false
+
+        searchController.searchBar.placeholder = "Search"
+        navigationItem.searchController = searchController
+        
         
         title = "Contacts"
         
