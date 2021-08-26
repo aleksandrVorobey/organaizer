@@ -16,9 +16,9 @@ class TasksViewController: UIViewController {
         return calendar
     }()
     
-    var calendarHeightConstrain: NSLayoutConstraint!
+    private var calendarHeightConstrain: NSLayoutConstraint!
     
-    let showHideButton: UIButton = {
+    private let showHideButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Open calendar", for: .normal)
@@ -27,14 +27,14 @@ class TasksViewController: UIViewController {
         return button
     }()
     
-    let tableView: UITableView = {
+    private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.bounces = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
     
-    let idTasksCell = "idTasksCell"
+    private let idTasksCell = "idTasksCell"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,13 +59,13 @@ class TasksViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
     }
     
-    @objc func addButtonTapped() {
-        let tasksOptionsVC = TasksOptionTableViewController()
+    @objc private func addButtonTapped() {
+        let tasksOptionsVC = TasksOptionsTableViewController()
         navigationController?.pushViewController(tasksOptionsVC, animated: true)
         print("taptap")
     }
     
-    @objc func showHideButtonTapped() {
+    @objc private func showHideButtonTapped() {
         if calendar.scope == .week {
             calendar.setScope(.month, animated: true)
             showHideButton.setTitle("Close calendar", for: .normal)
@@ -76,7 +76,7 @@ class TasksViewController: UIViewController {
     }
     
 //MARK: - SwipeGestureRecognaizer
-    func swipeAction() {
+    private func swipeAction() {
         let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe))
         swipeUp.direction = .up
         calendar.addGestureRecognizer(swipeUp)
@@ -86,7 +86,7 @@ class TasksViewController: UIViewController {
         calendar.addGestureRecognizer(swipeDown)
     }
 
-    @objc func handleSwipe(gesture: UISwipeGestureRecognizer) {
+    @objc private func handleSwipe(gesture: UISwipeGestureRecognizer) {
         switch gesture.direction {
         case .up:
             calendar.setScope(.week, animated: true)

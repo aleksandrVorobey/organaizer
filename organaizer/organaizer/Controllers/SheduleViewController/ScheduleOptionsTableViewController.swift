@@ -7,10 +7,10 @@
 
 import UIKit
 
-class OptionsScheduleTableViewController: UITableViewController {
+class ScheduleOptionsTableViewController: UITableViewController {
     
-    let idOptionsScheduleCell = "idOptionsScheduleCell"
-    let idOptionsScheduleHeader = "idOptionsScheduleHeader"
+    private let idOptionsScheduleCell = "idOptionsScheduleCell"
+    private let idOptionsScheduleHeader = "idOptionsScheduleHeader"
     
     let headerNameArray = ["DATE AND TIME", "LESSON", "TEACHER", "COLOR", "PERIOD"]
     
@@ -28,7 +28,7 @@ class OptionsScheduleTableViewController: UITableViewController {
         tableView.separatorStyle = .none
         tableView.bounces = false
         
-        title = "OptionalSchedule"
+        title = "Options Schedule"
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -71,7 +71,7 @@ class OptionsScheduleTableViewController: UITableViewController {
         case [1,2]: alertForCellName(label: cell.nameCellLabel, name: "Corpuse number", placeholder: "Enter corpuse number")
         case [1,3]: alertForCellName(label: cell.nameCellLabel, name: "Auditoria number", placeholder: "Enter auditoria number")
         case [2,0]: pushControllers(nameVC: TeachersViewController())
-        case [3,0]: pushControllers(nameVC: ScheduleColorViewController())
+        case [3,0]: pushControllers(nameVC: ScheduleColorsViewController())
         default:
             print("")
         }

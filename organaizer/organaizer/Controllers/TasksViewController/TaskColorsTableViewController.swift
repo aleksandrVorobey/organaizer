@@ -7,10 +7,10 @@
 
 import UIKit
 
-class ColorTaskTableViewController: UITableViewController {
+class TaskColorsTableViewController: UITableViewController {
     
-    let idTasksColorCell = "idTasksColorCell"
-    let idTaskColorHeader = "idTaskColorHeader"
+    private let idTasksColorCell = "idTasksColorCell"
+    private let idTaskColorHeader = "idTaskColorHeader"
     
     let headerNameArray = ["RED", "ORANGE", "YELLOW", "GREEN", "BLUE", "DEEP BLUE", "PURPLE"]
     
@@ -19,14 +19,14 @@ class ColorTaskTableViewController: UITableViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(ColorTableViewCell.self, forCellReuseIdentifier: idTasksColorCell)
+        tableView.register(ColorsTableViewCell.self, forCellReuseIdentifier: idTasksColorCell)
         tableView.register(HeaderOptionsTableViewCell.self, forHeaderFooterViewReuseIdentifier: idTaskColorHeader)
         
         tableView.backgroundColor = #colorLiteral(red: 0.9272904481, green: 0.9109478226, blue: 0.9396332249, alpha: 1)
         tableView.separatorStyle = .none
         tableView.bounces = false
         
-        title = "Color tasks"
+        title = "Colors tasks"
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -38,7 +38,7 @@ class ColorTaskTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: idTasksColorCell, for: indexPath) as! ColorTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: idTasksColorCell, for: indexPath) as! ColorsTableViewCell
         cell.cellConfigure(indexPath: indexPath)
         return cell
     }
@@ -48,7 +48,7 @@ class ColorTaskTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        _ = tableView.cellForRow(at: indexPath) as! ColorTableViewCell
+        _ = tableView.cellForRow(at: indexPath) as! ColorsTableViewCell
         
         print("Tap cell")
     }

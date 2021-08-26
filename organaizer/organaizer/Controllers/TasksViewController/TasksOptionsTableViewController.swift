@@ -7,10 +7,10 @@
 
 import UIKit
 
-class TasksOptionTableViewController: UITableViewController {
+class TasksOptionsTableViewController: UITableViewController {
     
-    let idOptionsTasksCell = "idOptionsTasksCell"
-    let idOptionsTasksHeader = "idOptionsTasksHeader"
+    private let idOptionsTasksCell = "idOptionsTasksCell"
+    private let idOptionsTasksHeader = "idOptionsTasksHeader"
     
     let headerNameArray = ["DATE", "LESSON", "TASK", "COLOR"]
     
@@ -58,7 +58,7 @@ class TasksOptionTableViewController: UITableViewController {
         }
         case 1: alertForCellName(label: cell.nameCellLabel, name: "Name lesson", placeholder: "Enter name lesson")
         case 2: alertForCellName(label: cell.nameCellLabel, name: "Name task", placeholder: "Enter name task")
-        case 3: pushControllers(nameVC: ColorTaskTableViewController())
+        case 3: pushControllers(nameVC: TaskColorsTableViewController())
         default:
             print("prapapa")
         }
