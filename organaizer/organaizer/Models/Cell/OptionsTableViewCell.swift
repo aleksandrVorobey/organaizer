@@ -30,10 +30,11 @@ class OptionsTableViewCell: UITableViewCell {
        let repeatSwitch = UISwitch()
         repeatSwitch.isOn = true
         repeatSwitch.isHidden = true
-        repeatSwitch.onTintColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
         repeatSwitch.translatesAutoresizingMaskIntoConstraints = false
         return repeatSwitch
     }()
+    
+    weak var switchRepeatDelegate: SwitchRepeatProtocol?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -54,28 +55,26 @@ class OptionsTableViewCell: UITableViewCell {
     
     
     @objc func switchChange(paramTarget: UISwitch) {
-        if paramTarget.isOn {
-            print("On")
-        } else {
-            print("Off")
-        }
+        switchRepeatDelegate?.switchRepeat(value: paramTarget.isOn)
     }
     
-    func cellScheduleConfigure(nameArray: [[String]], indexPath: IndexPath) {
+    func cellScheduleConfigure(nameArray: [[String]], indexPath: IndexPath, hexColor: String) {
         self.nameCellLabel.text = nameArray[indexPath.section][indexPath.row]
-        if indexPath == [3,0] {
-            backgroundViewCell.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
-        }
-        if indexPath == [4,0] {
-            repeatSwitch.isHidden = false
-        }
+        
+        let color = UIColor().colorFromHex(hexColor)
+        backgroundViewCell.backgroundColor = (indexPath.section == 3 ? color : .white)
+        repeatSwitch.isHidden = (indexPath.section == 4 ? false : true)
+        repeatSwitch.onTintColor = color
+//        if indexPath == [3,0] {
+//            backgroundViewCell.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+//        }
+//        if indexPath == [4,0] {
+//            repeatSwitch.isHidden = false
+//        }
     }
     
     func cellTasksConfigure(nameArray: [String], indexPath: IndexPath) {
         self.nameCellLabel.text = nameArray[indexPath.section]
-        if indexPath == [3,0] {
-            backgroundViewCell.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
-        }
     }
     
     func cellContactsConfigure(nameArray: [String], indexPath: IndexPath) {

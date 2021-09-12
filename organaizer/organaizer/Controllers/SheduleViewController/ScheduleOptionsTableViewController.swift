@@ -16,6 +16,10 @@ class ScheduleOptionsTableViewController: UITableViewController {
     
     let cellNameArray = [["Date:", "Time:"], ["Name:", "Type:", "Corpuse:", "Auditoria:"], ["Teacher Name:"], [""], ["Repeat every seven days:"]]
     
+    private var scheduleModule = ScheduleModel()
+    
+    var hexColorCell = "3802DA"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,6 +33,18 @@ class ScheduleOptionsTableViewController: UITableViewController {
         tableView.bounces = false
         
         title = "Options Schedule"
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonTapped))
+    }
+    
+    @objc private func saveButtonTapped() {
+        
+        scheduleModule.scheduleColor = hexColorCell
+        RealmManager.shared.saveScheduleModel(model: scheduleModule)
+        scheduleModule = ScheduleModel()
+        alertOk(title: "Save data")
+        hexColorCell = "3802DA"
+        tableView.reloadData()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -48,7 +64,9 @@ class ScheduleOptionsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: idOptionsScheduleCell, for: indexPath) as! OptionsTableViewCell
-        cell.cellScheduleConfigure(nameArray: cellNameArray, indexPath: indexPath)
+        cell.cellScheduleConfigure(nameArray: cellNameArray, indexPath: indexPath, hexColor: hexColorCell)
+        
+        cell.switchRepeatDelegate = self
         return cell
     }
     
@@ -61,15 +79,24 @@ class ScheduleOptionsTableViewController: UITableViewController {
         
         switch indexPath {
         case [0,0]: alertDate(label: cell.nameCellLabel) { numberWeekDay, date in
-            print(date)
+            self.scheduleModule.scheduleDate = date
+            self.scheduleModule.scheduleWeekday = numberWeekDay
         }
-        case [0,1]: alertTime(label: cell.nameCellLabel) { date in
-            print(date)
+        case [0,1]: alertTime(label: cell.nameCellLabel) { time in
+            self.scheduleModule.scheduleTime = time
         }
-        case [1,0]: alertForCellName(label: cell.nameCellLabel, name: "Name lesson", placeholder: "Enter name lesson")
-        case [1,1]: alertForCellName(label: cell.nameCellLabel, name: "Type lesson", placeholder: "Enter type lesson")
-        case [1,2]: alertForCellName(label: cell.nameCellLabel, name: "Corpuse number", placeholder: "Enter corpuse number")
-        case [1,3]: alertForCellName(label: cell.nameCellLabel, name: "Auditoria number", placeholder: "Enter auditoria number")
+        case [1,0]: alertForCellName(label: cell.nameCellLabel, name: "Name lesson", placeholder: "Enter name lesson") { text in
+            self.scheduleModule.scheduleName = text
+        }
+        case [1,1]: alertForCellName(label: cell.nameCellLabel, name: "Type lesson", placeholder: "Enter type lesson") { text in
+            self.scheduleModule.scheduleType = text
+        }
+        case [1,2]: alertForCellName(label: cell.nameCellLabel, name: "Corpuse number", placeholder: "Enter corpuse number") { text in
+            self.scheduleModule.scheduleCorpuse = text
+        }
+        case [1,3]: alertForCellName(label: cell.nameCellLabel, name: "Auditoria number", placeholder: "Enter auditoria number") { text in
+            self.scheduleModule.scheduleAuditoria = text
+        }
         case [2,0]: pushControllers(nameVC: TeachersViewController())
         case [3,0]: pushControllers(nameVC: ScheduleColorsViewController())
         default:
@@ -94,5 +121,13 @@ class ScheduleOptionsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
     }
+    
+}
+
+extension ScheduleOptionsTableViewController: SwitchRepeatProtocol {
+    func switchRepeat(value: Bool) {
+        scheduleModule.scheduleRepet = value
+    }
+    
     
 }

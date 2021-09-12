@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIViewController {
-    func alertForCellName(label: UILabel, name: String, placeholder: String) {
+    func alertForCellName(label: UILabel, name: String, placeholder: String, completionHandler: @escaping (String) -> ()) {
         let alert = UIAlertController(title: name, message: nil, preferredStyle: .alert)
         
         let ok = UIAlertAction(title: "Ok", style: .default) { action in
@@ -16,6 +16,7 @@ extension UIViewController {
             guard let text = tfAlert?.text  else { return  }
             if text.count > 0 {
                 label.text = text
+                completionHandler(text)
             }
         }
         

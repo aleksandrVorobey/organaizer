@@ -39,6 +39,10 @@
 		A68CFB7C26C9630E00A23DDA /* AlertPhotoCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68CFB7B26C9630E00A23DDA /* AlertPhotoCamera.swift */; };
 		A68CFB7F26D8529600A23DDA /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = A68CFB7E26D8529600A23DDA /* Realm */; };
 		A68CFB8126D8529600A23DDA /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A68CFB8026D8529600A23DDA /* RealmSwift */; };
+		A68CFB8426D85B7B00A23DDA /* ScheduleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68CFB8326D85B7B00A23DDA /* ScheduleModel.swift */; };
+		A6B2B85826ECA83100AF217C /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B2B85726ECA83100AF217C /* RealmManager.swift */; };
+		A6B2B85A26ED2FEC00AF217C /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B2B85926ED2FEC00AF217C /* UIColor.swift */; };
+		A6B2B85C26EDDF2B00AF217C /* AlertOk.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B2B85B26EDDF2B00AF217C /* AlertOk.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +79,10 @@
 		A66528A526B09CA4008D78E0 /* ScheduleColorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleColorsViewController.swift; sourceTree = "<group>"; };
 		A66528A726B09CEB008D78E0 /* TeachersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeachersViewController.swift; sourceTree = "<group>"; };
 		A68CFB7B26C9630E00A23DDA /* AlertPhotoCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPhotoCamera.swift; sourceTree = "<group>"; };
+		A68CFB8326D85B7B00A23DDA /* ScheduleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleModel.swift; sourceTree = "<group>"; };
+		A6B2B85726ECA83100AF217C /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		A6B2B85926ED2FEC00AF217C /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		A6B2B85B26EDDF2B00AF217C /* AlertOk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertOk.swift; sourceTree = "<group>"; };
 		B5F892CB934C89EC7B372C63 /* Pods-organaizer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-organaizer.debug.xcconfig"; path = "Target Support Files/Pods-organaizer/Pods-organaizer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -140,7 +148,8 @@
 			children = (
 				A665287926A853D2008D78E0 /* Aplication */,
 				A665287A26A853E1008D78E0 /* Controllers */,
-				A665288226AF1E4C008D78E0 /* Model */,
+				A665288226AF1E4C008D78E0 /* Models */,
+				A6B2B85626ECA7F800AF217C /* Services */,
 				A665288626AF372E008D78E0 /* Extensions */,
 				A665289026AF7A55008D78E0 /* Protocols */,
 				A665287B26A853F6008D78E0 /* Resources */,
@@ -178,13 +187,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		A665288226AF1E4C008D78E0 /* Model */ = {
+		A665288226AF1E4C008D78E0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A68CFB8226D85B4000A23DDA /* Realm */,
 				A665289E26B04DFA008D78E0 /* Alert */,
 				A665288326AF1E5A008D78E0 /* Cell */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		A665288326AF1E5A008D78E0 /* Cell */ = {
@@ -214,6 +224,7 @@
 				A665288826AF3763008D78E0 /* UIStackView.swift */,
 				A665288A26AF5A44008D78E0 /* UILabel.swift */,
 				A665288C26AF61BA008D78E0 /* UIFont.swift */,
+				A6B2B85926ED2FEC00AF217C /* UIColor.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -278,10 +289,27 @@
 				A665289F26B04E24008D78E0 /* AlertDate.swift */,
 				A66528A126B094BB008D78E0 /* AlertTime.swift */,
 				A66528A326B097EB008D78E0 /* AlertForCellName.swift */,
+				A6B2B85B26EDDF2B00AF217C /* AlertOk.swift */,
 				A62C0E2C26B9724E003FD884 /* AlertFriendOrTecher.swift */,
 				A68CFB7B26C9630E00A23DDA /* AlertPhotoCamera.swift */,
 			);
 			path = Alert;
+			sourceTree = "<group>";
+		};
+		A68CFB8226D85B4000A23DDA /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				A68CFB8326D85B7B00A23DDA /* ScheduleModel.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		A6B2B85626ECA7F800AF217C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A6B2B85726ECA83100AF217C /* RealmManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -410,17 +438,21 @@
 				A665288526AF1E84008D78E0 /* ScheduleTableViewCell.swift in Sources */,
 				A665286626A85290008D78E0 /* AppDelegate.swift in Sources */,
 				A665288926AF3763008D78E0 /* UIStackView.swift in Sources */,
+				A6B2B85C26EDDF2B00AF217C /* AlertOk.swift in Sources */,
 				A66528A826B09CEB008D78E0 /* TeachersViewController.swift in Sources */,
 				A66528A426B097EB008D78E0 /* AlertForCellName.swift in Sources */,
+				A68CFB8426D85B7B00A23DDA /* ScheduleModel.swift in Sources */,
 				A62C0E2926B875B6003FD884 /* ContactsTableViewCell.swift in Sources */,
 				A665288B26AF5A44008D78E0 /* UILabel.swift in Sources */,
 				A62C0E2B26B8B267003FD884 /* ContactsOptionsTableViewController.swift in Sources */,
 				A665287F26A858CF008D78E0 /* TasksViewController.swift in Sources */,
 				A62C0E2D26B9724E003FD884 /* AlertFriendOrTecher.swift in Sources */,
+				A6B2B85826ECA83100AF217C /* RealmManager.swift in Sources */,
 				A665286826A85290008D78E0 /* SceneDelegate.swift in Sources */,
 				A66528A226B094BB008D78E0 /* AlertTime.swift in Sources */,
 				A665287D26A858BC008D78E0 /* ScheduleViewController.swift in Sources */,
 				A665288D26AF61BA008D78E0 /* UIFont.swift in Sources */,
+				A6B2B85A26ED2FEC00AF217C /* UIColor.swift in Sources */,
 				A665288126A858E1008D78E0 /* ContactsTableViewController.swift in Sources */,
 				A665288F26AF6EC1008D78E0 /* TasksTableViewCell.swift in Sources */,
 				A665289B26B00D1B008D78E0 /* OptionsTableViewCell.swift in Sources */,

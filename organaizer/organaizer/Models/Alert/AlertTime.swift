@@ -1,5 +1,5 @@
 //
-//  AlertDate.swift
+//  AlertTime.swift
 //  organaizer
 //
 //  Created by Александр Воробей on 27.07.2021.
@@ -8,28 +8,23 @@
 import UIKit
 
 extension UIViewController {
-    func alertDate(label: UILabel, completionHandler: @escaping (Int, NSDate) -> ()) {
+    func alertTime(label: UILabel, completionHandler: @escaping (Date) -> ()) {
         let alert = UIAlertController.init(title: "", message: nil, preferredStyle: .actionSheet)
         
         let datePicker = UIDatePicker()
-        datePicker.datePickerMode = .date
+        datePicker.datePickerMode = .time
         datePicker.preferredDatePickerStyle = .wheels
+        datePicker.locale = NSLocale(localeIdentifier: "Ru_ru") as Locale
         
         alert.view.addSubview(datePicker)
         
         let ok = UIAlertAction(title: "Ok", style: .default) { action in
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd.MM.yyyy"
-            let dateString = dateFormatter.string(from: datePicker.date)
-            
-            let calendar = Calendar.current
-            let component = calendar.dateComponents([.weekday], from: datePicker.date)
-            guard let weekday = component.weekday else { return }
-            let numberWeekday = weekday
-            let date = datePicker.date as NSDate
-            completionHandler(numberWeekday, date)
-            
-            label.text = dateString
+            dateFormatter.dateFormat = "HH:mm"
+            let timeString = dateFormatter.string(from: datePicker.date)
+            let timeSchedule = datePicker.date
+            completionHandler(timeSchedule)
+            label.text = timeString
         }
         
         let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
@@ -47,3 +42,4 @@ extension UIViewController {
         present(alert, animated: true, completion: nil)
     }
 }
+

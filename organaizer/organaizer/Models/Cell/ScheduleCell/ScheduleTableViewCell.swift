@@ -37,6 +37,19 @@ class ScheduleTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func configure(model: ScheduleModel) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        
+        lessonName.text = model.scheduleName
+        teacherName.text = model.scheduleTeacher
+        lessonTime.text = dateFormatter.string(from: model.scheduleTime)
+        lessonType.text = model.scheduleType
+        lessonBuilding.text = model.scheduleCorpuse
+        lessonAud.text = model.scheduleAuditoria
+        backgroundColor = UIColor().colorFromHex("\(model.scheduleColor)")
+    }
 
 //MARK: - SetConstraints
     func setConstraints() {
