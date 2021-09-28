@@ -61,7 +61,6 @@ class ScheduleColorsViewController: UITableViewController {
         default:
             setColor(color: "FFFFFF")
         }
-        print("Tap cell")
     }
     
     private func setColor(color: String) {

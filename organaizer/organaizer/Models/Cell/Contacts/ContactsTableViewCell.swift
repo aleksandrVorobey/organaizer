@@ -12,7 +12,7 @@ class ContactsTableViewCell: UITableViewCell {
     let contactImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "face")
+        imageView.image = UIImage(systemName: "person.fill")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
@@ -22,9 +22,6 @@ class ContactsTableViewCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(systemName: "phone.fill")
-        imageView.tintColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -32,14 +29,11 @@ class ContactsTableViewCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(systemName: "envelope.fill")
-        imageView.tintColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
         return imageView
     }()
     
-    let nameLabel = UILabel(text: "James Bond", font: .avenirNext20())
-    let phoneLabel = UILabel(text: "8999 222 33 44", font: .avenirNext14())
+    let nameLabel = UILabel(text: "Unknown", font: .avenirNext20())
+    let phoneLabel = UILabel(text: "Unknown", font: .avenirNext14())
     let mailLabel = UILabel(text: "jamesBond@mail.com", font: .avenirNext14())
     
     override func layoutIfNeeded() {
@@ -56,6 +50,15 @@ class ContactsTableViewCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure(model: ContactModel) {
+        nameLabel.text = model.contactsName
+        phoneLabel.text = model.contactsPhone
+        mailLabel.text = model.contactsMail
+        
+        guard let data = model.contactsImage, let image = UIImage(data: data) else { return }
+        contactImageView.image = image
     }
 
     //MARK: - SetConstraints

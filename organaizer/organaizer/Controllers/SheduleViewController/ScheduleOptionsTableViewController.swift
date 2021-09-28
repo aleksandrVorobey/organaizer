@@ -12,13 +12,13 @@ class ScheduleOptionsTableViewController: UITableViewController {
     private let idOptionsScheduleCell = "idOptionsScheduleCell"
     private let idOptionsScheduleHeader = "idOptionsScheduleHeader"
     
-    let headerNameArray = ["DATE AND TIME", "LESSON", "TEACHER", "COLOR", "PERIOD"]
-    
-    let cellNameArray = [["Date:", "Time:"], ["Name:", "Type:", "Corpuse:", "Auditoria:"], ["Teacher Name:"], [""], ["Repeat every seven days:"]]
-    
     private var scheduleModule = ScheduleModel()
     
     var hexColorCell = "3802DA"
+    
+    let headerNameArray = ["DATE AND TIME", "LESSON", "TEACHER", "COLOR", "PERIOD"]
+    
+    let cellNameArray = [["Date:", "Time:"], ["Name:", "Type:", "Corpuse:", "Auditoria:"], ["Teacher Name:"], [""], ["Repeat every seven days:"]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,13 +38,17 @@ class ScheduleOptionsTableViewController: UITableViewController {
     }
     
     @objc private func saveButtonTapped() {
+        if scheduleModule.scheduleDate == nil || scheduleModule.scheduleTime == nil || scheduleModule.scheduleName == "Unknow" {
+            alertOk(title: "Error", message: "Requered DATE, TIME, NAME")
+        } else {
+            scheduleModule.scheduleColor = hexColorCell
+            RealmManager.shared.saveScheduleModel(model: scheduleModule)
+            scheduleModule = ScheduleModel()
+            alertOk(title: "Save data", message: nil)
+            hexColorCell = "3802DA"
+            tableView.reloadData()
+        }
         
-        scheduleModule.scheduleColor = hexColorCell
-        RealmManager.shared.saveScheduleModel(model: scheduleModule)
-        scheduleModule = ScheduleModel()
-        alertOk(title: "Save data")
-        hexColorCell = "3802DA"
-        tableView.reloadData()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

@@ -43,6 +43,8 @@
 		A6B2B85826ECA83100AF217C /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B2B85726ECA83100AF217C /* RealmManager.swift */; };
 		A6B2B85A26ED2FEC00AF217C /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B2B85926ED2FEC00AF217C /* UIColor.swift */; };
 		A6B2B85C26EDDF2B00AF217C /* AlertOk.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B2B85B26EDDF2B00AF217C /* AlertOk.swift */; };
+		A6B2B8A92701C72400AF217C /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B2B8A82701C72400AF217C /* TaskModel.swift */; };
+		A6B2B8AB2702572800AF217C /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B2B8AA2702572800AF217C /* ContactModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +85,8 @@
 		A6B2B85726ECA83100AF217C /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		A6B2B85926ED2FEC00AF217C /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		A6B2B85B26EDDF2B00AF217C /* AlertOk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertOk.swift; sourceTree = "<group>"; };
+		A6B2B8A82701C72400AF217C /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		A6B2B8AA2702572800AF217C /* ContactModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
 		B5F892CB934C89EC7B372C63 /* Pods-organaizer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-organaizer.debug.xcconfig"; path = "Target Support Files/Pods-organaizer/Pods-organaizer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -300,6 +304,8 @@
 			isa = PBXGroup;
 			children = (
 				A68CFB8326D85B7B00A23DDA /* ScheduleModel.swift */,
+				A6B2B8A82701C72400AF217C /* TaskModel.swift */,
+				A6B2B8AA2702572800AF217C /* ContactModel.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -446,6 +452,7 @@
 				A665288B26AF5A44008D78E0 /* UILabel.swift in Sources */,
 				A62C0E2B26B8B267003FD884 /* ContactsOptionsTableViewController.swift in Sources */,
 				A665287F26A858CF008D78E0 /* TasksViewController.swift in Sources */,
+				A6B2B8A92701C72400AF217C /* TaskModel.swift in Sources */,
 				A62C0E2D26B9724E003FD884 /* AlertFriendOrTecher.swift in Sources */,
 				A6B2B85826ECA83100AF217C /* RealmManager.swift in Sources */,
 				A665286826A85290008D78E0 /* SceneDelegate.swift in Sources */,
@@ -463,6 +470,7 @@
 				A66528A626B09CA4008D78E0 /* ScheduleColorsViewController.swift in Sources */,
 				A62C0E2626B8258B003FD884 /* TaskColorsTableViewController.swift in Sources */,
 				A665289D26B01450008D78E0 /* HeaderOptionsTableViewCell.swift in Sources */,
+				A6B2B8AB2702572800AF217C /* ContactModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -40,6 +40,10 @@ class ScheduleViewController: UIViewController {
     var scheduleArray: Results<ScheduleModel>!
     
     private let idScheduleCell = "idScheduleCell"
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,7 +83,6 @@ class ScheduleViewController: UIViewController {
     @objc private func addButtonTapped() {
         let scheduleOptionsVC = ScheduleOptionsTableViewController()
         navigationController?.pushViewController(scheduleOptionsVC, animated: true)
-        print("taptap")
     }
     
 //MARK: - SwipeGestureRecognaizer
@@ -110,7 +113,6 @@ class ScheduleViewController: UIViewController {
         let calendar = Calendar.current
         let components = calendar.dateComponents([.weekday], from: date)
         guard let weekday = components.weekday else { return }
-        print(weekday)
         
         let dateStart = date
         let dateEnd: Date = {
@@ -145,6 +147,15 @@ extension ScheduleViewController: UITableViewDelegate, UITableViewDataSource {
         return 80
     }
     
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let editingRow = scheduleArray[indexPath.row]
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, completionHandler in
+            RealmManager.shared.deleteScheduleModel(model: editingRow)
+            tableView.reloadData()
+        }
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+    
 }
 
 //MARK: - FSCalendar delegate and datasource
@@ -155,7 +166,6 @@ extension ScheduleViewController: FSCalendarDelegate, FSCalendarDataSource {
     }
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        
         scheduleOnDay(date: date)
     }
 }

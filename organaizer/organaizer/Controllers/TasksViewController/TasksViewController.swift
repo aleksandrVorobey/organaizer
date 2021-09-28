@@ -7,6 +7,7 @@
 
 import UIKit
 import FSCalendar
+import RealmSwift
 
 class TasksViewController: UIViewController {
 
@@ -35,6 +36,14 @@ class TasksViewController: UIViewController {
     }()
     
     private let idTasksCell = "idTasksCell"
+    
+    private let localRealm = try! Realm()
+    private var tasksArray: Results<TaskModel>!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,16 +54,17 @@ class TasksViewController: UIViewController {
         
         calendar.delegate = self
         calendar.dataSource = self
+        calendar.scope = .week
+        
+        swipeAction()
         
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(TasksTableViewCell.self, forCellReuseIdentifier: idTasksCell)
         
-        calendar.scope = .week
+        setTaskOnDay(date: calendar.today!)
         
         showHideButton.addTarget(self, action: #selector(showHideButtonTapped), for: .touchUpInside)
-        
-        swipeAction()
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
     }
@@ -62,7 +72,6 @@ class TasksViewController: UIViewController {
     @objc private func addButtonTapped() {
         let tasksOptionsVC = TasksOptionsTableViewController()
         navigationController?.pushViewController(tasksOptionsVC, animated: true)
-        print("taptap")
     }
     
     @objc private func showHideButtonTapped() {
@@ -73,6 +82,17 @@ class TasksViewController: UIViewController {
             calendar.setScope(.week, animated: true)
             showHideButton.setTitle("Open calendar", for: .normal)
         }
+    }
+    
+    private func setTaskOnDay(date: Date) {
+        let dateStart = date
+        let dateEnd: Date = {
+            let components = DateComponents(day: 1, second: -1)
+            return Calendar.current.date(byAdding: components, to: dateStart)!
+        }()
+        
+        tasksArray = localRealm.objects(TaskModel.self).filter("taskDate BETWEEN %@", [dateStart, dateEnd])
+        tableView.reloadData()
     }
     
 //MARK: - SwipeGestureRecognaizer
@@ -104,13 +124,15 @@ class TasksViewController: UIViewController {
 //MARK: - UITableViewDelegate and DataSource
 extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return tasksArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: idTasksCell, for: indexPath) as! TasksTableViewCell
         cell.cellTaskDelegate = self
         cell.index = indexPath
+        let model = tasksArray[indexPath.row]
+        cell.configure(model: model)
         return cell
     }
     
@@ -118,12 +140,23 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
         return 80
     }
     
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let editingRow = tasksArray[indexPath.row]
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, completionHandler in
+            RealmManager.shared.deleteTaskModel(model: editingRow)
+            tableView.reloadData()
+        }
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+    
 }
 
 //MARK: - PressReadyTaskButtonProtocol
 extension TasksViewController: PressReadyTaskButtonProtocol {
     func readyButtonTapped(indexPath: IndexPath) {
-        print("TAPTAP")
+        let task = tasksArray[indexPath.row]
+        RealmManager.shared.updateReadyButtonTaskModel(task: task, bool: !task.taskReady)
+        tableView.reloadData()
     }
 }
 
@@ -135,7 +168,7 @@ extension TasksViewController: FSCalendarDelegate, FSCalendarDataSource {
     }
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        print(date)
+        setTaskOnDay(date: date)
     }
 }
 
