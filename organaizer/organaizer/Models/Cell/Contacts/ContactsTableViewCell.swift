@@ -66,7 +66,7 @@ class ContactsTableViewCell: UITableViewCell {
             self.addSubview(contactImageView)
             self.addSubview(nameLabel)
             
-            let stackView = UIStackView(arrangedSubviews: [phoneImageView, phoneLabel, mailImageView, mailLabel], axis: .horizontal, spacing: 3, distribution: .fillProportionally)
+            let stackView = UIStackView(arrangedSubviews: [phoneImageView, phoneLabel, mailImageView, mailLabel], axis: .horizontal, spacing: 3, distribution: .equalSpacing)
             self.addSubview(stackView)
             
             NSLayoutConstraint.activate([
