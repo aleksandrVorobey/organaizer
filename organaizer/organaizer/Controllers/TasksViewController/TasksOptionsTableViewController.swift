@@ -23,7 +23,7 @@ class TasksOptionsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Options tasks"
+        title = "Options contacts"
         
         tableView.delegate = self
         tableView.dataSource = self

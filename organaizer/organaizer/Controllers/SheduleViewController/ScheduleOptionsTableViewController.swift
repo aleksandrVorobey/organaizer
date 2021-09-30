@@ -12,13 +12,13 @@ class ScheduleOptionsTableViewController: UITableViewController {
     private let idOptionsScheduleCell = "idOptionsScheduleCell"
     private let idOptionsScheduleHeader = "idOptionsScheduleHeader"
     
-    private var scheduleModule = ScheduleModel()
+    var scheduleModel = ScheduleModel()
     
     var hexColorCell = "3802DA"
     
     let headerNameArray = ["DATE AND TIME", "LESSON", "TEACHER", "COLOR", "PERIOD"]
     
-    let cellNameArray = [["Date:", "Time:"], ["Name:", "Type:", "Corpuse:", "Auditoria:"], ["Teacher Name:"], [""], ["Repeat every seven days:"]]
+    var cellNameArray = [["Date:", "Time:"], ["Name:", "Type:", "Corpuse:", "Auditoria:"], ["Teacher Name:"], [""], ["Repeat every seven days:"]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,14 +38,15 @@ class ScheduleOptionsTableViewController: UITableViewController {
     }
     
     @objc private func saveButtonTapped() {
-        if scheduleModule.scheduleDate == nil || scheduleModule.scheduleTime == nil || scheduleModule.scheduleName == "Unknow" {
+        if scheduleModel.scheduleDate == nil || scheduleModel.scheduleTime == nil || scheduleModel.scheduleName == "Unknow" {
             alertOk(title: "Error", message: "Requered DATE, TIME, NAME")
         } else {
-            scheduleModule.scheduleColor = hexColorCell
-            RealmManager.shared.saveScheduleModel(model: scheduleModule)
-            scheduleModule = ScheduleModel()
+            scheduleModel.scheduleColor = hexColorCell
+            RealmManager.shared.saveScheduleModel(model: scheduleModel)
+            scheduleModel = ScheduleModel()
             alertOk(title: "Save data", message: nil)
             hexColorCell = "3802DA"
+            cellNameArray[2][0] = "Teacher Name:"
             tableView.reloadData()
         }
         
@@ -83,25 +84,25 @@ class ScheduleOptionsTableViewController: UITableViewController {
         
         switch indexPath {
         case [0,0]: alertDate(label: cell.nameCellLabel) { numberWeekDay, date in
-            self.scheduleModule.scheduleDate = date
-            self.scheduleModule.scheduleWeekday = numberWeekDay
+            self.scheduleModel.scheduleDate = date
+            self.scheduleModel.scheduleWeekday = numberWeekDay
         }
         case [0,1]: alertTime(label: cell.nameCellLabel) { time in
-            self.scheduleModule.scheduleTime = time
+            self.scheduleModel.scheduleTime = time
         }
         case [1,0]: alertForCellName(label: cell.nameCellLabel, name: "Name lesson", placeholder: "Enter name lesson") { text in
-            self.scheduleModule.scheduleName = text
+            self.scheduleModel.scheduleName = text
         }
         case [1,1]: alertForCellName(label: cell.nameCellLabel, name: "Type lesson", placeholder: "Enter type lesson") { text in
-            self.scheduleModule.scheduleType = text
+            self.scheduleModel.scheduleType = text
         }
         case [1,2]: alertForCellName(label: cell.nameCellLabel, name: "Corpuse number", placeholder: "Enter corpuse number") { text in
-            self.scheduleModule.scheduleCorpuse = text
+            self.scheduleModel.scheduleCorpuse = text
         }
         case [1,3]: alertForCellName(label: cell.nameCellLabel, name: "Auditoria number", placeholder: "Enter auditoria number") { text in
-            self.scheduleModule.scheduleAuditoria = text
+            self.scheduleModel.scheduleAuditoria = text
         }
-        case [2,0]: pushControllers(nameVC: TeachersViewController())
+        case [2,0]: pushControllers(nameVC: TeachersTableViewController())
         case [3,0]: pushControllers(nameVC: ScheduleColorsViewController())
         default:
             print("")
@@ -130,7 +131,7 @@ class ScheduleOptionsTableViewController: UITableViewController {
 
 extension ScheduleOptionsTableViewController: SwitchRepeatProtocol {
     func switchRepeat(value: Bool) {
-        scheduleModule.scheduleRepet = value
+        scheduleModel.scheduleRepet = value
     }
     
     

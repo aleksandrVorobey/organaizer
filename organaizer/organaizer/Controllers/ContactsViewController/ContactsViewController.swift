@@ -20,7 +20,6 @@ class ContactsViewController: UIViewController {
     
     private let tableView: UITableView = {
         let tableView = UITableView()
-        //tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         tableView.separatorStyle = .singleLine
         return tableView
@@ -84,6 +83,21 @@ class ContactsViewController: UIViewController {
         let contactsOptionsVC = ContactsOptionsTableViewController()
         navigationController?.pushViewController(contactsOptionsVC, animated: true)
     }
+    
+    @objc private func editingModel(contactModel: ContactModel) {
+        let contactsOptionsVC = ContactsOptionsTableViewController()
+        contactsOptionsVC.contactModel = contactModel
+        contactsOptionsVC.editModel = true
+        contactsOptionsVC.cellNameArray = [
+            contactModel.contactsName,
+            contactModel.contactsPhone,
+            contactModel.contactsMail,
+            contactModel.contactsType,
+            ""
+        ]
+        contactsOptionsVC.imageIsChanged = true
+        navigationController?.pushViewController(contactsOptionsVC, animated: true)
+    }
 }
 
 extension ContactsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -103,7 +117,8 @@ extension ContactsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("ZZZ")
+        let model = contactsArray[indexPath.row]
+        editingModel(contactModel: model)
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
